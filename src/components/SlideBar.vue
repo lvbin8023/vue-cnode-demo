@@ -121,7 +121,6 @@ ul a {
 .topbar {
   padding: 10px;
   background-color: #f6f6f6;
-  height: 16px;
   font-size: 12px;
   margin-top: 10px;
 }

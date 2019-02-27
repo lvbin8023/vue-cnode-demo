@@ -44,7 +44,7 @@ export default {
 }
 
 .main {
-  width: 67%;
+  width: 90%;
   margin: 15px auto;
 }
 </style>

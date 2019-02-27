@@ -94,7 +94,6 @@ export default {
 .topbar {
   padding: 10px;
   background-color: #f6f6f6;
-  height: 16px;
   font-size: 12px;
   margin-top: 10px;
 }
@@ -126,9 +125,14 @@ export default {
   color: #666;
   text-decoration: none;
 }
+
 .replySec {
   border-bottom: 1px solid #e5e5e5;
-  padding: 0 10px;
+  padding: 15px 10px;
+}
+
+.replySec p {
+  padding: 10px 0 0;
 }
 
 .loading {
