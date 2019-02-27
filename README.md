@@ -1,4 +1,4 @@
-# cnode
+# cnode社区项目demo
 
 > A Vue.js project
 
