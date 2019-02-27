@@ -101,9 +101,6 @@ export default {
 </script>
 
 <style scoped>
-.PostList {
-  background-color: #e1e1e1;
-}
 .posts {
   margin-top: 10px;
 }
