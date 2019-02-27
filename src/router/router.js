@@ -20,7 +20,7 @@ export default new Router({
       path: '/article/:id&author=:name',
       components: {
         main: Article,
-        slidebar:SlideBar
+        slidebar: SlideBar
       }
     },
     {

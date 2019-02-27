@@ -44,7 +44,7 @@
           <span class="last_reply">{{post.last_reply_at | formatDate}}</span>
         </li>
         <li>
-          <pagination></pagination>
+          <pagination @handleList="renderList"></pagination>
         </li>
       </ul>
     </div>
@@ -82,11 +82,20 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    renderList(value) {
+      this.postpage = value;
+      this.getData();
     }
   },
   beforeMount() {
     this.isLoading = true; //加载成功后显示加载动画
     this.getData(); //页面加载之前获取数据
+  },
+  watch: {
+    $router(to, from) {
+      this.getData();
+    }
   }
 };
 </script>

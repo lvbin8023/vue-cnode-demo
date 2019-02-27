@@ -39,8 +39,12 @@ export default {
   padding: 0;
 }
 
+#app {
+  background-color: #e1e1e1;
+}
+
 .main {
   width: 67%;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 </style>
