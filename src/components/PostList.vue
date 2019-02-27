@@ -1,6 +1,11 @@
 <template>
   <div class="PostList">
-    <div class="posts">
+    <!-- 数据加载返回前，显示loading动画 -->
+    <div class="loading" v-if="isLoading">
+      <img src="../assets/loading.gif" alt>
+    </div>
+    <!-- 主题帖子列表 -->
+    <div class="posts" v-else>
       <ul>
         <li>
           <div class="topbar">
@@ -11,11 +16,7 @@
             <span>招聘</span>
           </div>
         </li>
-        <!-- 数据加载返回前，显示loading动画 -->
-        <div class="loading" v-if="isLoading">
-          <img src="../assets/loading.gif" alt>
-        </div>
-        <li v-for="post in posts" :key="post.author_id">
+        <li v-for="post in posts">
           <!--头像-->
           <img :src="post.author.avatar_url" alt>
           <!--回复/浏览-->
@@ -31,9 +32,19 @@
             <span>{{post | tabFormatter}}</span>
           </span>
           <!-- 标题 -->
-          <span>{{post.title}}</span>
+          <router-link
+            :to="{
+            name:'post_content',
+            params:{id:post.id,name:post.author.loginname}
+            }"
+          >
+            <span>{{post.title}}</span>
+          </router-link>
           <!--最終回复时间-->
-          <span class="last_reply">{{post.last_reply_at|formatDate}}</span>
+          <span class="last_reply">{{post.last_reply_at | formatDate}}</span>
+        </li>
+        <li>
+          <pagination></pagination>
         </li>
       </ul>
     </div>
@@ -41,20 +52,28 @@
 </template>
 
 <script>
+import Pagination from "./Pagination.vue";
+
 export default {
   name: "PostList",
   data() {
     return {
       isLoading: false,
-      posts: [] //代表页面的列表数组
+      posts: [], //代表页面的列表数组
+      postpage: 1
     };
+  },
+  components: {
+    Pagination
   },
   methods: {
     getData() {
       this.$http
         .get("https://cnodejs.org/api/v1/topics", {
-          page: 1,
-          limit: 20
+          params: {
+            page: this.postpage,
+            limit: 20
+          }
         })
         .then(result => {
           this.isLoading = false; //加载成功，去除动画

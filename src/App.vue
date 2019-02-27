@@ -2,22 +2,24 @@
   <div id="app">
     <Header></Header>
     <div class="main">
-      <PostList></PostList>
+      <router-view name="slidebar"></router-view>
+      <router-view name="main"></router-view>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
-import PostList from './components/PostList';
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    PostList
+    Footer
   }
-}
+};
 </script>
 
 <style>
@@ -35,10 +37,6 @@ export default {
 *::after {
   margin: 0;
   padding: 0;
-}
-
-#app {
-  background-color: #e1e1e1;
 }
 
 .main {
