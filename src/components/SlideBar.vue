@@ -16,7 +16,7 @@
     <div class="recent_topics">
       <div class="topbar">作者最近主题</div>
       <ul>
-        <li v-for="list in topcilimitby5">
+        <li v-for="list in topcilimitby5" :key="list.id">
           <router-link
             :to="{
         name:'post_content',
@@ -32,7 +32,7 @@
     <div class="recent_replies">
       <div class="topbar">作者最近回复</div>
       <ul>
-        <li v-for="list in replylimitby5">
+        <li v-for="list in replylimitby5" :key="list.id">
           <router-link
             :to="{
         name:'post_content',
