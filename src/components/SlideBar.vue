@@ -8,7 +8,7 @@
           params:{
             name:userinfo.loginname
           }
-          }"
+        }"
       >
         <img :src="userinfo.avatar_url" alt>
       </router-link>
@@ -19,12 +19,12 @@
         <li v-for="list in topcilimitby5" :key="list.id">
           <router-link
             :to="{
-        name:'post_content',
-        params:{
-          id:list.id,
-          name:list.author.loginname
-        }
-        }"
+              name:'post_content',
+              params:{
+                id:list.id,
+                name:list.author.loginname
+              }
+            }"
           >{{list.title}}</router-link>
         </li>
       </ul>
@@ -35,12 +35,12 @@
         <li v-for="list in replylimitby5" :key="list.id">
           <router-link
             :to="{
-        name:'post_content',
-        params:{
-          id:list.id,
-          name:list.author.loginname
-        }
-        }"
+              name:'post_content',
+              params:{
+                id:list.id,
+                name:list.author.loginname
+              }
+            }"
           >{{list.title}}</router-link>
         </li>
       </ul>
